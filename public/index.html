@@ -5,177 +5,388 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pradortiz &amp; Dev — Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    body { margin-top: 50px; background-color: #f8f9fa; }
-    .header { margin-bottom: 4rem; text-align: center; }
-    .header h1 { font-size: 3.6rem; letter-spacing: -.1rem; }
-    .header p  { color: #888; font-size: 1.6rem; }
+    :root {
+      --dark:        #111111;
+      --mid:         #333333;
+      --accent:      #888888;
+      --light:       #dddddd;
+      --pale:        #f5f5f5;
+      --gray-text:   #2a2a2a;
+      --gray-muted:  #777777;
+      --gray-border: #e1e1e1;
+      --white:       #ffffff;
+    }
 
-    /* ── Developer cards ── */
-    .dev-card {
-      padding: 2rem;
-      border-radius: 4px;
-      background: #fff;
-      border: 1px solid #e1e1e1;
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin-top: 50px;
+      background-color: #f8f9fa;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--gray-text);
+      zoom: 1.25;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      margin-bottom: 4rem;
       text-align: center;
+    }
+    .header-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+      line-height: 1.15;
+    }
+    .header h1 em {
+      font-style: italic;
+      color: var(--mid);
+    }
+    .header-subtitle {
+      font-size: 1rem;
+      color: var(--gray-muted);
+      margin-bottom: 2rem;
+    }
+    .header-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--mid), var(--accent));
+      border: none;
+      margin: 0 auto 2.4rem;
+      border-radius: 2px;
+    }
+
+    /* ── SECTION NUMBER / TITLE ── */
+    .section-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    h2.section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--dark);
+      border-bottom: 2px solid var(--light);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.4rem;
+      margin-top: 0;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section-block {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 4px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ── DEVELOPER CARDS ── */
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+    .dev-card {
+      flex: 1 1 calc(50% - 1rem);
+      min-width: 220px;
+      background: var(--pale);
+      border: 1px solid var(--light);
+      border-radius: 4px;
+      padding: 1.6rem 1.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
     }
     .dev-card img {
-      width: 100px;
-      height: 100px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1.2rem;
-      border: 3px solid #e1e1e1;
+      border: 2px solid var(--light);
+      flex-shrink: 0;
     }
-    .dev-card h4 { margin-bottom: 0.4rem; }
-    .dev-card .role { color: #888; font-size: 1.3rem; margin-bottom: 1rem; }
-    .dev-card .contacts a {
-      display: inline-block;
-      margin: 0 0.4rem;
-      font-size: 1.3rem;
-      color: #1eaedb;
-      text-decoration: none;
-    }
-    .dev-card .contacts a:hover { text-decoration: underline; }
-
-    /* ── Section titles ── */
-    .section-title {
-      margin-top: 5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      border-bottom: 1px solid #e1e1e1;
-      padding-bottom: 1rem;
-    }
-
-    /* ── Project cards ── */
-    .project-card {
-      padding: 2rem;
-      border-radius: 4px;
-      background: #fff;
-      border: 1px solid #e1e1e1;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    .project-card h5 { margin-bottom: 0.6rem; }
-    .project-card p  { flex: 1; color: #555; font-size: 1.4rem; }
-    .project-card .tags { margin-bottom: 1.2rem; }
-    .project-card .tag {
-      display: inline-block;
-      background: #f1f1f1;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      padding: 0.2rem 0.7rem;
+    .dev-card-body { flex: 1; }
+    .dev-name {
+      font-family: 'DM Serif Display', serif;
       font-size: 1.1rem;
-      margin-right: 0.4rem;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+    .dev-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
       margin-bottom: 0.4rem;
     }
-    .project-card .button {
-      margin-top: auto;
-      width: 100%;
-      text-align: center;
+    .dev-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+    .dev-bio {
+      font-size: 0.85rem;
+      color: var(--gray-muted);
+      line-height: 1.55;
+      margin-bottom: 0.7rem;
+    }
+    .dev-contacts { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .dev-contacts a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--mid);
+      text-decoration: none;
+      border: 1px solid var(--light);
+      border-radius: 3px;
+      padding: 0.2rem 0.6rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .dev-contacts a:hover {
+      background: var(--dark);
+      color: var(--white);
+      border-color: var(--dark);
     }
 
-    /* equal-height columns trick */
-    .row.projects-row { display: flex; flex-wrap: wrap; align-items: stretch; }
-    .row.projects-row > [class*="column"] { display: flex; }
-    .row.projects-row > [class*="column"] .project-card { width: 100%; }
+    /* ── PROJECT CARDS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.6rem;
+    }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-thumb {
+      width: 100%;
+      height: 148px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--gray-border);
+      display: block;
+    }
+    .project-thumb-placeholder {
+      width: 100%;
+      height: 148px;
+      background: var(--pale);
+      border-bottom: 1px solid var(--gray-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .project-body {
+      padding: 1.2rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--gray-muted);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 0.8rem;
+    }
+    .project-tags { margin-bottom: 1rem; }
+    .tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      background: var(--pale);
+      border: 1px solid var(--light);
+      border-radius: 3px;
+      padding: 0.15rem 0.55rem;
+      margin-right: 0.35rem;
+      margin-bottom: 0.35rem;
+      color: var(--mid);
+    }
+    .project-link {
+      display: block;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--dark);
+      border: none;
+      border-radius: 3px;
+      padding: 0.55rem 1rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .project-link:hover { background: var(--mid); color: var(--white); }
 
-    footer { margin-top: 5rem; padding-bottom: 3rem; text-align: center; color: #888; }
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 5rem;
+      padding-bottom: 3rem;
+      text-align: center;
+      color: var(--gray-muted);
+    }
+    footer span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
 
-  <!-- ── Header ── -->
+  <!-- ══════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════ -->
   <div class="header">
-    <h1>Pradortiz <span style="color:#1eaedb">&amp;</span> Dev</h1>
-    <p>Portfolio de projetos web — React, Vue, HTML e muito mais.</p>
+    <p class="header-eyebrow">Portfolio · Desenvolvimento Web</p>
+    <h1>Pradortiz <em>&amp;</em> Dev</h1>
+    <p class="header-subtitle">React, Vue, HTML e muito mais — projetos construídos com atenção aos detalhes.</p>
+    <hr class="header-divider" />
   </div>
 
-  <!-- ── Developer cards ── -->
+
+  <!-- ══════════════════════════════════════
+       EQUIPE
+  ══════════════════════════════════════ -->
   <div class="row">
-    <!-- Developer 1 -->
-    <div class="six columns">
-      <div class="dev-card">
-        <!--
-          Substitua o src abaixo pelo caminho da foto real, ex:
-          src="/public/images/dev1.jpg"
-        -->
-        <img src="https://via.placeholder.com/100" alt="Foto Dev 1" />
-        <h4>Felipe Prado</h4>
-        <div class="role">Full-Stack Developer</div>
-        <p style="font-size:1.3rem; color:#555;">
-          Desenvolvimento de aplicações web modernas com foco em
-          performance e experiência do usuário.
-        </p>
-        <div class="contacts">
-          <a href="mailto:felipe@exemplo.com" title="E-mail">✉ E-mail</a>
-          <a href="https://github.com/pradortiz" target="_blank" rel="noopener" title="GitHub">&#128025; GitHub</a>
-          <a href="https://linkedin.com/in/pradortiz" target="_blank" rel="noopener" title="LinkedIn">in LinkedIn</a>
+    <div class="twelve columns">
+      <div class="section-block">
+        <span class="section-number">— equipe</span>
+        <h2 class="section-title">Desenvolvedores</h2>
+
+        <div class="team-grid">
+
+          <div class="dev-card">
+            <img src="assets/img/chino.png" alt="Foto Felipe Ortiz" />
+            <div class="dev-card-body">
+              <div class="dev-name">Felipe Ortiz</div>
+              <div class="dev-handle">@Invictus-potens</div>
+              <div class="dev-role">Full-Stack Developer</div>
+              <p class="dev-bio">
+                Desenvolvimento de aplicações web modernas com foco em
+                performance e experiência do usuário.
+              </p>
+              <div class="dev-contacts">
+                <a href="mailto:felipeommelo@gmail.com">✉ E-mail</a>
+                <a href="https://github.com/Invictus-potens" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/felipe-ortiz-b8a05a31b/" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dev-card">
+            <img src="assets/img/felipe.png" alt="Foto Felipe Prado" />
+            <div class="dev-card-body">
+              <div class="dev-name">Felipe Prado</div>
+              <div class="dev-handle">@FelipePrado0</div>
+              <div class="dev-role">Front-End Developer</div>
+              <p class="dev-bio">
+                Especialista em interfaces acessíveis e responsivas com
+                atenção aos detalhes de design.
+              </p>
+              <div class="dev-contacts">
+                <a href="mailto:parceiro@exemplo.com">✉ E-mail</a>
+                <a href="https://github.com/FelipePrado0" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/felipe-prado-6973aa213/" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Developer 2 -->
-    <div class="six columns">
-      <div class="dev-card">
-        <img src="https://via.placeholder.com/100" alt="Foto Dev 2" />
-        <h4>Nome do Parceiro</h4>
-        <div class="role">Front-End Developer</div>
-        <p style="font-size:1.3rem; color:#555;">
-          Especialista em interfaces acessíveis e responsivas com
-          atenção aos detalhes de design.
-        </p>
-        <div class="contacts">
-          <a href="mailto:parceiro@exemplo.com" title="E-mail">✉ E-mail</a>
-          <a href="https://github.com/parceiro" target="_blank" rel="noopener" title="GitHub">&#128025; GitHub</a>
-          <a href="https://linkedin.com/in/parceiro" target="_blank" rel="noopener" title="LinkedIn">in LinkedIn</a>
+
+  <!-- ══════════════════════════════════════
+       PROJETOS
+  ══════════════════════════════════════ -->
+  <div class="row">
+    <div class="twelve columns">
+      <div class="section-block">
+        <span class="section-number">— projetos</span>
+        <h2 class="section-title">Projetos</h2>
+
+        <div class="projects-grid" id="projects-container">
+          <!-- Cards injetados via JS -->
         </div>
       </div>
     </div>
-  </div><!-- /row developers -->
-
-  <!-- ── Projects section ── -->
-  <h3 class="section-title">Projetos</h3>
-
-  <div class="row projects-row" id="projects-container">
-    <!-- Os cards de projeto são injetados pelo script abaixo -->
   </div>
 
 </div><!-- /container -->
 
 <footer>
-  <p>Pradortiz &amp; Dev &mdash; Todos os direitos reservados &copy; <span id="year"></span></p>
+  <span>Pradortiz &amp; Dev &mdash; Todos os direitos reservados &copy; <span id="year"></span></span>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Busca a lista de projetos da API e renderiza os cards
   fetch('/api/projects')
     .then(function(r){ return r.json(); })
     .then(function(projects){
       var container = document.getElementById('projects-container');
       projects.forEach(function(p){
-        var tags = p.tags.map(function(t){
+        var tags = (p.tags || []).map(function(t){
           return '<span class="tag">' + t + '</span>';
         }).join('');
 
-        var col = document.createElement('div');
-        col.className = 'four columns';
-        col.innerHTML =
-          '<div class="project-card">' +
-            '<h5>' + p.name + '</h5>' +
-            '<p>' + p.description + '</p>' +
-            '<div class="tags">' + tags + '</div>' +
-            '<a class="button button-primary" href="/projects/' + p.slug + '" target="_blank">' +
-              'Ver projeto' +
-            '</a>' +
+        var thumb = p.thumbnail
+          ? '<img class="project-thumb" src="' + p.thumbnail + '" alt="Miniatura de ' + p.name + '">'
+          : '<div class="project-thumb-placeholder">sem imagem</div>';
+
+        var card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML =
+          thumb +
+          '<div class="project-body">' +
+            '<div class="project-name">' + p.name + '</div>' +
+            '<p class="project-desc">' + p.description + '</p>' +
+            '<div class="project-tags">' + tags + '</div>' +
+            '<a class="project-link" href="/projects/' + p.slug + '" target="_blank">Ver projeto</a>' +
           '</div>';
-        container.appendChild(col);
+        container.appendChild(card);
       });
     });
 </script>

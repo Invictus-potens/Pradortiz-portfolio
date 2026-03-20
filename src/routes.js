@@ -19,10 +19,11 @@ const projects = [
     tags: ['Vue', 'Vite', 'JavaScript'],
   },
   {
-    slug: 'site-html-puro',
-    name: 'Site HTML Puro',
-    description: 'Site estático simples sem framework.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+  slug: 'documentacao-ia',
+  name: 'I.Agro Documentação técnica',
+  description: 'Documentação técnica para o assistente de IA da I.Agro feita usando skeleton.css como boilerplate.',
+  tags: ['HTML', 'CSS', 'JavaScript', 'Mermaid', 'Skeleton.css'],
+  thumbnail: '/assets/img/iagro.png',
   },
 ];
 
