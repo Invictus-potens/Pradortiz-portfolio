@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pradortiz &amp; Dev — Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+  <style>
+    body { margin-top: 50px; background-color: #f8f9fa; }
+    .header { margin-bottom: 4rem; text-align: center; }
+    .header h1 { font-size: 3.6rem; letter-spacing: -.1rem; }
+    .header p  { color: #888; font-size: 1.6rem; }
+
+    /* ── Developer cards ── */
+    .dev-card {
+      padding: 2rem;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #e1e1e1;
+      text-align: center;
+    }
+    .dev-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.2rem;
+      border: 3px solid #e1e1e1;
+    }
+    .dev-card h4 { margin-bottom: 0.4rem; }
+    .dev-card .role { color: #888; font-size: 1.3rem; margin-bottom: 1rem; }
+    .dev-card .contacts a {
+      display: inline-block;
+      margin: 0 0.4rem;
+      font-size: 1.3rem;
+      color: #1eaedb;
+      text-decoration: none;
+    }
+    .dev-card .contacts a:hover { text-decoration: underline; }
+
+    /* ── Section titles ── */
+    .section-title {
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #e1e1e1;
+      padding-bottom: 1rem;
+    }
+
+    /* ── Project cards ── */
+    .project-card {
+      padding: 2rem;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #e1e1e1;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .project-card h5 { margin-bottom: 0.6rem; }
+    .project-card p  { flex: 1; color: #555; font-size: 1.4rem; }
+    .project-card .tags { margin-bottom: 1.2rem; }
+    .project-card .tag {
+      display: inline-block;
+      background: #f1f1f1;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      padding: 0.2rem 0.7rem;
+      font-size: 1.1rem;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    .project-card .button {
+      margin-top: auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* equal-height columns trick */
+    .row.projects-row { display: flex; flex-wrap: wrap; align-items: stretch; }
+    .row.projects-row > [class*="column"] { display: flex; }
+    .row.projects-row > [class*="column"] .project-card { width: 100%; }
+
+    footer { margin-top: 5rem; padding-bottom: 3rem; text-align: center; color: #888; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── Header ── -->
+  <div class="header">
+    <h1>Pradortiz <span style="color:#1eaedb">&amp;</span> Dev</h1>
+    <p>Portfolio de projetos web — React, Vue, HTML e muito mais.</p>
+  </div>
+
+  <!-- ── Developer cards ── -->
+  <div class="row">
+    <!-- Developer 1 -->
+    <div class="six columns">
+      <div class="dev-card">
+        <!--
+          Substitua o src abaixo pelo caminho da foto real, ex:
+          src="/public/images/dev1.jpg"
+        -->
+        <img src="https://via.placeholder.com/100" alt="Foto Dev 1" />
+        <h4>Felipe Prado</h4>
+        <div class="role">Full-Stack Developer</div>
+        <p style="font-size:1.3rem; color:#555;">
+          Desenvolvimento de aplicações web modernas com foco em
+          performance e experiência do usuário.
+        </p>
+        <div class="contacts">
+          <a href="mailto:felipe@exemplo.com" title="E-mail">✉ E-mail</a>
+          <a href="https://github.com/pradortiz" target="_blank" rel="noopener" title="GitHub">&#128025; GitHub</a>
+          <a href="https://linkedin.com/in/pradortiz" target="_blank" rel="noopener" title="LinkedIn">in LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer 2 -->
+    <div class="six columns">
+      <div class="dev-card">
+        <img src="https://via.placeholder.com/100" alt="Foto Dev 2" />
+        <h4>Nome do Parceiro</h4>
+        <div class="role">Front-End Developer</div>
+        <p style="font-size:1.3rem; color:#555;">
+          Especialista em interfaces acessíveis e responsivas com
+          atenção aos detalhes de design.
+        </p>
+        <div class="contacts">
+          <a href="mailto:parceiro@exemplo.com" title="E-mail">✉ E-mail</a>
+          <a href="https://github.com/parceiro" target="_blank" rel="noopener" title="GitHub">&#128025; GitHub</a>
+          <a href="https://linkedin.com/in/parceiro" target="_blank" rel="noopener" title="LinkedIn">in LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /row developers -->
+
+  <!-- ── Projects section ── -->
+  <h3 class="section-title">Projetos</h3>
+
+  <div class="row projects-row" id="projects-container">
+    <!-- Os cards de projeto são injetados pelo script abaixo -->
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>Pradortiz &amp; Dev &mdash; Todos os direitos reservados &copy; <span id="year"></span></p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Busca a lista de projetos da API e renderiza os cards
+  fetch('/api/projects')
+    .then(function(r){ return r.json(); })
+    .then(function(projects){
+      var container = document.getElementById('projects-container');
+      projects.forEach(function(p){
+        var tags = p.tags.map(function(t){
+          return '<span class="tag">' + t + '</span>';
+        }).join('');
+
+        var col = document.createElement('div');
+        col.className = 'four columns';
+        col.innerHTML =
+          '<div class="project-card">' +
+            '<h5>' + p.name + '</h5>' +
+            '<p>' + p.description + '</p>' +
+            '<div class="tags">' + tags + '</div>' +
+            '<a class="button button-primary" href="/projects/' + p.slug + '" target="_blank">' +
+              'Ver projeto' +
+            '</a>' +
+          '</div>';
+        container.appendChild(col);
+      });
+    });
+</script>
+
+</body>
+</html>
