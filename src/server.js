@@ -3,7 +3,7 @@ const path = require('path');
 const routes = require('./routes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 48096;
 
 // Serve a landing page (public/)
 app.use(express.static(path.join(__dirname, '..', 'public')));
