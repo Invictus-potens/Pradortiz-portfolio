@@ -7,10 +7,11 @@ const router = express.Router();
 // e colocar o build na pasta projects/<slug>/
 const projects = [
   {
-    slug: 'site-react',
-    name: 'Site em React',
-    description: 'Aplicação SPA construída com React e Vite.',
-    tags: ['React', 'Vite', 'JavaScript'],
+    slug: 'calculadora-cam',
+    name: 'Calculadora de preços Krolik',
+    description: 'Aplicação construida com skeleton css.',
+    tags: ['Skeleton.css'],
+    thumbnail: '/assets/img/cam.png'
   },
   {
     slug: 'site-vue',
