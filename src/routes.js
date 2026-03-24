@@ -24,7 +24,7 @@ const projects = [
     slug: 'calculadora-cam',
     name: 'Calculadora de preços Krolik',
     description: 'Aplicação construida com skeleton css.',
-    tags: ['Skeleton.css'],
+    tags: ['HTML','CSS','JavaScript','Skeleton.css'],
     thumbnail: '/assets/img/cam.png'
   },
   {
