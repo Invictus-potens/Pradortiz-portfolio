@@ -13,8 +13,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 170.254.78.193
-          port: 22
-          username: invictuspotens
+          port: 4851
+          username: invictus
           key: ${{ secrets.DEPLOY_ACTIONS }}
           script: |
             cd ~/desenvolvimento/Pradortiz-portfolio
