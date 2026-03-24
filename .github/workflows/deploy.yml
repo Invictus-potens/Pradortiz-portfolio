@@ -1,0 +1,21 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: 170.254.78.193
+          username: invictus
+          key: ${{ secrets.DEPLOY_ACTIONS }}
+          script: |
+            cd ~/desenvolvimento/Pradortiz-portfolio
+            git pull origin main
+            docker compose up -d --build
