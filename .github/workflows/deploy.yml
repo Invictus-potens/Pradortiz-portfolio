@@ -12,7 +12,8 @@ jobs:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
         with:
-          host: 170.254.78.193:22
+          host: 170.254.78.193
+          port: 22
           username: invictuspotens
           key: ${{ secrets.DEPLOY_ACTIONS }}
           script: |
