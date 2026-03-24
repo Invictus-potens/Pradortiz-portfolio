@@ -6,3 +6,9 @@ services:
     ports:
       - "48096:48096"
     restart: unless-stopped
+    networks:
+      - tool_net
+
+networks:
+  tool_net:
+    external: true
