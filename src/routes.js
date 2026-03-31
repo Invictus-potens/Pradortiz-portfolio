@@ -28,10 +28,12 @@ const projects = [
     thumbnail: '/assets/img/cam.png'
   },
   {
-    slug: 'site-vue',
-    name: 'Site em Vue',
+    slug: 'zelo-home',
+    name: 'Homepage da Zelo',
     description: 'Aplicação SPA construída com Vue 3 e Vite.',
-    tags: ['Vue', 'Vite', 'JavaScript'],
+    tags: ['Tailwind CSS', 'JavaScript'],
+    thumbnail: '/assets/img/zelo.png',
+    externalUrl: 'https://zelo-home.pradortiz.lat/'
   }
   
 ];
@@ -49,7 +51,11 @@ router.get('/projects/:slug', (req, res) => {
   if (!exists) {
     return res.status(404).send('Projeto não encontrado.');
   }
-  // Redireciona para o index.html do projeto
+  // Se o projeto tem URL externa, redireciona para lá
+  if (exists.externalUrl) {
+    return res.redirect(exists.externalUrl);
+  }
+  // Caso contrário, redireciona para o index.html do projeto
   res.redirect(`/projects/${slug}/index.html`);
 });
 
