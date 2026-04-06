@@ -23,18 +23,35 @@ const projects = [
   {
     slug: 'calculadora-cam',
     name: 'Calculadora de preços Krolik',
-    description: 'Aplicação construida com skeleton css.',
+    description: 'Aplicação construida com skeleton css, calculadora de preços de produtos vendidos pela empresa Krolik Tecnologia em Nuvens, em produção .',
     tags: ['HTML','CSS','JavaScript','Skeleton.css'],
     thumbnail: '/assets/img/cam.png'
   },
   {
     slug: 'zelo-home',
     name: 'Homepage da Zelo',
-    description: 'Aplicação SPA construída com Vue 3 e Vite.',
-    tags: ['Tailwind CSS', 'JavaScript'],
+    description: 'Landing page de alto impacto desenvolvida para a Zelo, apresentando uma solução revolucionária que transforma a manutenção reativa em inteligência preventiva. O projeto foca em uma experiência de usuário imersiva, utilizando animações de ponta para guiar o cliente através do ecossistema de gestão inteligente de ativos e saúde predial.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'GSAP', 'TypeScript'],
     thumbnail: '/assets/img/zelo.png',
     externalUrl: 'https://zelo-home.pradortiz.lat/'
-  }
+  },
+    {
+    slug: 'Editor de itens do FFXII',
+    name: 'Editor de itens do FFXII',
+    description: 'Editor de itens para o jogo Final Fantasy XII, dentro dele é possível editar todos os itens existentes no jogo e gerar um documento Lua que pode ser utilizado no jogo.',
+    tags: ['HTML5','CSS', 'JavaScript','Lua'],
+    thumbnail: '/assets/img/ffxii.png',
+    externalUrl: 'https://ff12editor.pradortiz.lat/'
+  },
+    {
+    slug: 'profamilia',
+    name: 'Homepage da Profamilia',
+    description: 'Landing page criada como atividade complementar para disciplina de programação web, tendo como objetivo criar um site para uma ONG de nossa região, escolhemos a Associação Pró Família, uma instituição que promove a ajuda de crianças e mães na comunidade da Mangueira em Ribeirão Preto.',
+    tags: ['Tailwind CSS', 'HTML5', 'web semântica', 'SEO'],
+    thumbnail: '/assets/img/profamilia.png',
+    externalUrl: 'https://profamilia.pradortiz.lat'
+  },
+  
   
 ];
 
