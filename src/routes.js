@@ -50,7 +50,7 @@ const projects = [
     tags: ['Tailwind CSS', 'HTML5', 'web semântica', 'SEO'],
     thumbnail: '/assets/img/profamilia.png',
     externalUrl: 'https://profamilia.pradortiz.lat'
-  },
+  }
   
   
 ];
