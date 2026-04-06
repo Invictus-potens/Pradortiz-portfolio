@@ -25,7 +25,8 @@ const projects = [
     name: 'Calculadora de preços Krolik',
     description: 'Aplicação construida com skeleton css, calculadora de preços de produtos vendidos pela empresa Krolik Tecnologia em Nuvens, em produção .',
     tags: ['HTML','CSS','JavaScript','Skeleton.css'],
-    thumbnail: '/assets/img/cam.png'
+    thumbnail: '/assets/img/calculadora.png',
+    externalUrl: 'https://usecam.krolik.com.br/calculadora'
   },
   {
     slug: 'zelo-home',
@@ -47,7 +48,7 @@ const projects = [
     slug: 'profamilia',
     name: 'Homepage da Profamilia',
     description: 'Landing page criada como atividade complementar para disciplina de programação web, tendo como objetivo criar um site para uma ONG de nossa região, escolhemos a Associação Pró Família, uma instituição que promove a ajuda de crianças e mães na comunidade da Mangueira em Ribeirão Preto.',
-    tags: ['Tailwind CSS', 'HTML5', 'web semântica', 'SEO'],
+    tags: ['Tailwind CSS', 'HTML5', 'Web semântica', 'SEO'],
     thumbnail: '/assets/img/profamilia.png',
     externalUrl: 'https://profamilia.pradortiz.lat'
   }

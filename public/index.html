@@ -197,6 +197,16 @@
       border-bottom: 1px solid var(--gray-border);
       display: block;
     }
+    .project-thumb-button {
+      all: unset;
+      display: block;
+      width: 100%;
+      cursor: zoom-in;
+    }
+    .project-thumb-button:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
     .project-thumb-placeholder {
       width: 100%;
       height: 148px;
@@ -304,6 +314,56 @@
       height: 24px;
 }
 
+/* ── IMAGE LIGHTBOX ── */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 12000;
+}
+
+.image-modal.is-open {
+  display: flex;
+}
+
+.image-modal-content {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: 90vh;
+}
+
+.image-modal-content img {
+  width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #0c0c0c;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--dark);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 @media (max-width: 640px) {
   .whatsapp-float {
     right: 14px;
@@ -409,8 +469,33 @@
   <span>Pradortiz &amp; Dev &mdash; Todos os direitos reservados &copy; <span id="year"></span></span>
 </footer>
 
+<div class="image-modal" id="image-modal" aria-hidden="true">
+  <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="Imagem ampliada do projeto">
+    <button class="image-modal-close" id="image-modal-close" type="button" aria-label="Fechar imagem ampliada">×</button>
+    <img id="image-modal-img" src="" alt="" />
+  </div>
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  var modal = document.getElementById('image-modal');
+  var modalImage = document.getElementById('image-modal-img');
+  var modalClose = document.getElementById('image-modal-close');
+
+  function openImageModal(src, alt) {
+    modalImage.src = src;
+    modalImage.alt = alt || 'Imagem ampliada';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeImageModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImage.src = '';
+    document.body.classList.remove('modal-open');
+  }
 
   fetch('/api/projects')
     .then(function(r){ return r.json(); })
@@ -422,7 +507,7 @@
         }).join('');
 
         var thumb = p.thumbnail
-          ? '<img class="project-thumb" src="' + p.thumbnail + '" alt="Miniatura de ' + p.name + '">'
+          ? '<button class="project-thumb-button" type="button" data-full-image="' + p.thumbnail + '" data-alt="Miniatura de ' + p.name + '" aria-label="Abrir imagem ampliada de ' + p.name + '"><img class="project-thumb" src="' + p.thumbnail + '" alt="Miniatura de ' + p.name + '"></button>'
           : '<div class="project-thumb-placeholder">sem imagem</div>';
 
         var card = document.createElement('div');
@@ -438,6 +523,24 @@
         container.appendChild(card);
       });
     });
+
+  document.addEventListener('click', function(event) {
+    var thumbButton = event.target.closest('.project-thumb-button');
+    if (thumbButton) {
+      openImageModal(thumbButton.getAttribute('data-full-image'), thumbButton.getAttribute('data-alt'));
+      return;
+    }
+
+    if (event.target === modal || event.target === modalClose) {
+      closeImageModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeImageModal();
+    }
+  });
 </script>
 
 <a
