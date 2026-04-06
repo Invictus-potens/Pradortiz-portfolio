@@ -21,7 +21,7 @@ const projects = [
   thumbnail: '/projects/iagro/assets/css/img/image.png',
   },
   {
-    slug: 'calculadora-cam',
+    slug: 'calculadora-krolik',
     name: 'Calculadora de preços Krolik',
     description: 'Aplicação construida com skeleton css, calculadora de preços de produtos vendidos pela empresa Krolik Tecnologia em Nuvens, em produção .',
     tags: ['HTML','CSS','JavaScript','Skeleton.css'],
