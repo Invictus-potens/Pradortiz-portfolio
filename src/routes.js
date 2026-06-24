@@ -13,7 +13,23 @@ const projects = [
   tags: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Prisma', 'Docker/CI-CD', 'ENG'],
   thumbnail: '/assets/img/pro-carpentry.png',
   externalUrl: 'https://procarpentry.pradortiz.lat'
-  },
+},
+{
+  slug: 'sinc-fotografia',
+  name: 'Sinc Fotografia',
+  description: 'SINC Fotografia é uma empresa na qual oferece serviços de fotografias, o projeto é uma landing page na qual serve de portfólio para a empresa, feito no estilo da Vogue e com o tema em preto e branco tem o diferencial onde foi realizado a criação de um painel adm, não sendo visível para clientes, o adm acessa por meio de rotas na qual digitando /auth você realiza cria um login e por ser o primeiro determinado acesso tem a permissão de adm, após o cadastro de um acesso é bloqueado automaticamente cadastros novos, assim garantindo a segurança do acesso ao painel adm, dentro da aplicação temos uma tela onde por meio de 4 opções conseguimos alterar determinadas informações e fotos dentro do site, além de uma parte para criar uma álbum e adicionar ao site.',
+  tags: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Docker/CI-CD', 'Supabase(PostgresSQL)', 'Supabase Storage', 'PT'],
+  thumbnail: '/assets/img/sinc-fotografia.png',
+  externalUrl: 'https://sincfotografia.com/'
+},
+  {
+  slug: 'Editor de itens do FFXII',
+  name: 'Editor de itens do FFXII',
+  description: 'Editor de itens para o jogo Final Fantasy XII, dentro dele é possível editar todos os itens existentes no jogo e gerar um documento Lua que pode ser utilizado no jogo.',
+  tags: ['HTML5','CSS', 'JavaScript', 'Lua', 'Docker/CI-CD', 'PT/ENG'],
+  thumbnail: '/assets/img/ffxii.png',
+  externalUrl: 'https://ff12editor.pradortiz.lat/'
+},
   {
   slug: 'documentacao-ia',
   name: 'I.Agro Documentação técnica',
@@ -35,22 +51,6 @@ const projects = [
     tags: ['HTML','CSS','JavaScript','Skeleton.css', 'PT'],
     thumbnail: '/assets/img/calculadora.png',
     externalUrl: 'https://usecam.krolik.com.br/calculadora'
-  },
-  {
-    slug: 'zelo-home',
-    name: 'Homepage da Zelo',
-    description: 'Landing page de alto impacto desenvolvida para a Zelo, apresentando uma solução revolucionária que transforma a manutenção reativa em inteligência preventiva. O projeto foca em uma experiência de usuário imersiva, utilizando animações de ponta para guiar o cliente através do ecossistema de gestão inteligente de ativos e saúde predial.',
-    tags: ['Next.js', 'React', 'Tailwind CSS', 'GSAP', 'TypeScript', 'Docker/CI-CD', 'PT'],
-    thumbnail: '/assets/img/zelo.png',
-    externalUrl: 'https://zelo-home.pradortiz.lat/'
-  },
-    {
-    slug: 'Editor de itens do FFXII',
-    name: 'Editor de itens do FFXII',
-    description: 'Editor de itens para o jogo Final Fantasy XII, dentro dele é possível editar todos os itens existentes no jogo e gerar um documento Lua que pode ser utilizado no jogo.',
-    tags: ['HTML5','CSS', 'JavaScript', 'Lua', 'Docker/CI-CD', 'PT/ENG'],
-    thumbnail: '/assets/img/ffxii.png',
-    externalUrl: 'https://ff12editor.pradortiz.lat/'
   },
     {
     slug: 'profamilia',
